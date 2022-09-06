@@ -1,7 +1,13 @@
-point_x = input('введите точку X: ')
-point_y = input('введите точку Y: ')
 
-def PointCoordinate(point_x, point_y):
+def PointCoordinate():
+    point_x = input('введите точку X: ')
+    point_y = input('введите точку Y: ')
+    while not point_x.isdigit() and not point_y.isdigit():
+        print("Одно или оба значения не подходят")
+        point_x = input('введите точку X: ')
+        point_y = input('введите точку Y: ')
+    point_x = int(point_x)
+    point_y = int(point_y)
     if point_x == 0 or point_y == 0:
         print('Ошибка')
     elif point_x > 0 and point_y > 0:
@@ -12,8 +18,4 @@ def PointCoordinate(point_x, point_y):
         print('Это третья четверть')
     elif point_x > 0 and point_y < 0:
         print('Это четвертая четверть')
-
-if type(point_x) == int and type(point_y) == int:
-    PointCoordinate(point_x, point_y)
-else:
-    print('Данное значение не подходит!')
+PointCoordinate()
